@@ -5,7 +5,7 @@ const flags = require('minimist')(process.argv.slice(2));
 const inputFile = flags['in'];
 const topN = parseInt(flags['topN']);
 
-var urls = fs.readFileSync(inputFile).toString().toString().split("\n");
+var urls = fs.readFileSync(inputFile).toString().split("\n");
 urls.pop();
 
 (async () => {
@@ -38,8 +38,7 @@ urls.pop();
                     });
                 }
             }
-	});
-	
+        });
         const response = await page.goto(url, {waitUntil:'domcontentloaded'});
     }
     catch (err){
